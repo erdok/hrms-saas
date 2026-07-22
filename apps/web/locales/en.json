@@ -1,0 +1,145 @@
+﻿{
+  "app": { "title": "HR Management System", "shortName": "HRMS" },
+  "nav": {
+    "dashboard": "Dashboard",
+    "employees": "Employees",
+    "departments": "Departments",
+    "leaves": "Leaves",
+    "attendance": "Attendance",
+    "templates": "Templates",
+    "documents": "Documents",
+    "settings": "Settings"
+  },
+  "landing": {
+    "heading": "Modern {insanKaynaklari} System",
+    "insanKaynaklari": "Human Resources",
+    "desc": "Manage employees, leaves, attendance and documents from a single scalable SaaS infrastructure.",
+    "cta": "Get Started Free",
+    "login": "Sign In",
+    "features": {
+      "multiTenant": { "title": "Multi-Company", "desc": "Each company its own tenant, its own users." },
+      "rbac": { "title": "Role-Based Access", "desc": "4 level permission matrix." },
+      "kvkk": { "title": "GDPR/KVKK Ready", "desc": "Audit log, encryption, access control." },
+      "typesafe": { "title": "Type-Safe", "desc": "End-to-end TypeScript with generated DB types." }
+    }
+  },
+  "auth": {
+    "signupTitle": "New Company Registration",
+    "loginTitle": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "submitSignup": "Register",
+    "submitLogin": "Sign In",
+    "hasAccount": "Already have an account?",
+    "noAccount": "No account?",
+    "openSession": "Sign in",
+    "createCompany": "Create a company",
+    "companyName": "Company Name",
+    "companySlug": "Subdomain (slug)",
+    "fullName": "Full Name",
+    "loading": "Loading..."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview for {companyName}.",
+    "totalEmployees": "Total Employees",
+    "activeEmployees": "Active",
+    "femaleEmployees": "Female",
+    "maleEmployees": "Male",
+    "passiveEmployees": "Passive (Archive)",
+    "expiringContracts": "Expiring Contracts",
+    "pendingLeaves": "Pending Leaves",
+    "deptDistribution": "Distribution by Department",
+    "onLeaveToday": "On Leave Today",
+    "expiringSoon": "Contracts expiring within {days} days",
+    "noExpiring": "No contracts expiring within {days} days",
+    "noLeaveToday": "No employees on leave today",
+    "noDepartment": "No departments found",
+    "phaseComplete": "Setup complete"
+  },
+  "employees": {
+    "title": "Employees",
+    "passiveTitle": "Passive Employees (Archive)",
+    "desc": "Manage your active staff.",
+    "passiveDesc": "Inactive or departed employees safely stored.",
+    "add": "New Employee",
+    "edit": "Edit Employee",
+    "new": "New Employee",
+    "noEmployees": "No employees yet",
+    "noPassive": "Archive empty",
+    "noEmployeesDesc": "Add your first employee to start.",
+    "noPassiveDesc": "No archived employees.",
+    "search": "Search by name...",
+    "allDepartments": "All Departments",
+    "activeFilter": "Active Employees",
+    "passiveFilter": "Passive (Archive)",
+    "cols": {
+      "fullName": "Full Name",
+      "department": "Department",
+      "gender": "Gender",
+      "startDate": "Start Date",
+      "contractEnd": "Contract End",
+      "remainingLeave": "Remaining Leave",
+      "actions": "Actions"
+    },
+    "genderFemale": "Female",
+    "genderMale": "Male",
+    "contractForever": "Indefinite",
+    "leaveRemaining": "{days} days",
+    "actions": {
+      "edit": "Edit",
+      "archive": "Archive",
+      "restore": "Restore",
+      "hardDelete": "Permanent Delete",
+      "confirmDelete": "Are you sure? Click again"
+    }
+  },
+  "departments": {
+    "title": "Departments",
+    "desc": "Create and organize departments hierarchically.",
+    "add": "New",
+    "edit": "Edit Department",
+    "noDepartments": "No departments",
+    "noDepartmentsDesc": "Add your first department to start.",
+    "cols": {
+      "name": "Department",
+      "parent": "Parent Dept",
+      "count": "Active People",
+      "actions": "Actions"
+    },
+    "people": "{count} people",
+    "parentNone": "NONE"
+  },
+  "leaves": {
+    "title": "Leaves",
+    "desc": "View, approve or reject leave requests.",
+    "add": "New Leave",
+    "noLeaves": "No leave records",
+    "noLeavesDesc": "Change filters or create a new leave request.",
+    "calendarToggle": "Calendar View",
+    "print": "Print",
+    "export": "Download Excel",
+    "cols": { "employee":"Employee","department":"Department","type":"Type","start":"Start","end":"End","days":"Days","status":"Status","approver":"Approver","actions":"Actions" },
+    "status": { "pending":"Pending","approved":"Approved","rejected":"Rejected" },
+    "actions": { "approve":"Approve","reject":"Reject","cancel":"Cancel","hardDelete":"Permanent Delete" }
+  },
+  "attendance": {
+    "title": "Attendance",
+    "desc": "{month} {year} - Active employees",
+    "prev": "Previous",
+    "next": "Next",
+    "legend": "Click to cycle code: G (Present), R (Report), I (Leave), T (Holiday), B (Absent).",
+    "summary": "Monthly summary (day counts)",
+    "summaryCols": { "name":"Employee","came":"Present","report":"Report","leave":"Leave","holiday":"Holiday","absent":"Absent" }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "update": "Update",
+    "saving": "Saving...",
+    "loading": "Loading...",
+    "confirm": "Are you sure?",
+    "records": "{count} records",
+    "page": "Page {page}/{total}"
+  }
+}

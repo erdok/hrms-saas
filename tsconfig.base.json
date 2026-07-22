@@ -1,0 +1,26 @@
+﻿{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hrms/db": ["./packages/db/src/index.ts"],
+      "@hrms/db/*": ["./packages/db/src/*"],
+      "@hrms/ui": ["./packages/ui/src/index.ts"],
+      "@hrms/types": ["./packages/types/src/index.ts"],
+      "@hrms/types/*": ["./packages/types/src/*"]
+    }
+  },
+  "exclude": ["node_modules", ".next", "dist", "build"]
+}

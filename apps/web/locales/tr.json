@@ -1,0 +1,145 @@
+﻿{
+  "app": { "title": "IK Yonetim Sistemi", "shortName": "HRMS" },
+  "nav": {
+    "dashboard": "Panel",
+    "employees": "Personeller",
+    "departments": "Departmanlar",
+    "leaves": "Izinler",
+    "attendance": "Puantaj",
+    "templates": "Sablonlar",
+    "documents": "Belgeler",
+    "settings": "Ayarlar"
+  },
+  "landing": {
+    "heading": "Modern {insanKaynaklari} Sistemi",
+    "insanKaynaklari": "Insan Kaynaklari",
+    "desc": "Personel, izin, puantaj ve belge yonetimini tek panelden olcebilecek bir SaaS altyapisi.",
+    "cta": "Ucretsiz Basla",
+    "login": "Oturum Ac",
+    "features": {
+      "multiTenant": { "title": "Coklu Sirket", "desc": "Her sirket kendi tenanti, kendi kullanicilari." },
+      "rbac": { "title": "Rol Bazli Erisim", "desc": "4 seviyeli yetki matrisi." },
+      "kvkk": { "title": "KVKK Uyumlu", "desc": "Audit log, veri sifreleme, erisim kontrolu." },
+      "typesafe": { "title": "Tip Guvenli", "desc": "Supabase gertext generik tipleriyle." }
+    }
+  },
+  "auth": {
+    "signupTitle": "Yeni Sirket Kaydi",
+    "loginTitle": "Oturum Ac",
+    "email": "E-posta",
+    "password": "Sifre",
+    "submitSignup": "Kayit Ol",
+    "submitLogin": "Giris Yap",
+    "hasAccount": "Zaten hesabiniz var?",
+    "noAccount": "Hesabiniz yok mu?",
+    "openSession": "Oturum acin",
+    "createCompany": "Sirket kaydi olusturun",
+    "companyName": "Sirket Adi",
+    "companySlug": "Subdomain (slug)",
+    "fullName": "Ad Soyad",
+    "loading": "Yukleniyor..."
+  },
+  "dashboard": {
+    "title": "Panel",
+    "subtitle": "{companyName} sirketi genel bakis.",
+    "totalEmployees": "Toplam Personel",
+    "activeEmployees": "Aktif Personel",
+    "femaleEmployees": "Kadin Personel",
+    "maleEmployees": "Erkek Personel",
+    "passiveEmployees": "Pasif (Arsiv)",
+    "expiringContracts": "Sozlesmesi Bitmek Uzere",
+    "pendingLeaves": "Bekleyen Izinler",
+    "deptDistribution": "Departmanlara Gore Dagilim",
+    "onLeaveToday": "Bugun Izinli Personeller",
+    "expiringSoon": "Onumuzdeki {days} Gunde Bitecek Sozlesmeler",
+    "noExpiring": "{days} gun icinde biten sozlesme yok",
+    "noLeaveToday": "Bugun izinli personel yok",
+    "noDepartment": "Departman bulunmuyor",
+    "phaseComplete": "Kurulum tamam"
+  },
+  "employees": {
+    "title": "Personeller",
+    "passiveTitle": "Pasif Personeller (Arsiv)",
+    "desc": "Aktif calisanlarinizi yonetin.",
+    "passiveDesc": "Istenden ayrilmis veya pasife alinmis kayitlar.",
+    "add": "Yeni Personel",
+    "edit": "Personel Duzenle",
+    "new": "Yeni Personel",
+    "noEmployees": "Henuz personel yok",
+    "noPassive": "Arsiv bos",
+    "noEmployeesDesc": "Ilk calisaninizi ekleyerek baslayin.",
+    "noPassiveDesc": "Pasife alinmis personel kaydi bulunmuyor.",
+    "search": "Ad veya soyad ara...",
+    "allDepartments": "Tum Departmanlar",
+    "activeFilter": "Aktif Personeller",
+    "passiveFilter": "Pasif (Arsiv)",
+    "cols": {
+      "fullName": "Ad Soyad",
+      "department": "Departman",
+      "gender": "Cinsiyet",
+      "startDate": "Ise Baslangic",
+      "contractEnd": "Sozlesme Bitis",
+      "remainingLeave": "Kalan Izin",
+      "actions": "Islem"
+    },
+    "genderFemale": "Kadin",
+    "genderMale": "Erkek",
+    "contractForever": "Suresiz",
+    "leaveRemaining": "{days} gun",
+    "actions": {
+      "edit": "Duzenle",
+      "archive": "Pasife Al",
+      "restore": "Tekrar Isle Al",
+      "hardDelete": "Kalici Sil",
+      "confirmDelete": "Emin misin? Tekrar tikla"
+    }
+  },
+  "departments": {
+    "title": "Departmanlar",
+    "desc": "Departmanlari olusturun ve hiyerarsik olarak duzenleyin.",
+    "add": "Yeni",
+    "edit": "Departmani Duzenle",
+    "noDepartments": "Departman yok",
+    "noDepartmentsDesc": "Ilk departmaninizi ekleyerek baslayin.",
+    "cols": {
+      "name": "Departman",
+      "parent": "Ust Departman",
+      "count": "Aktif Personel",
+      "actions": "Islemler"
+    },
+    "people": "{count} kisi",
+    "parentNone": "YOK"
+  },
+  "leaves": {
+    "title": "Izinler",
+    "desc": "Izin taleplerini goruntule, onayla ya da dagit.",
+    "add": "Yeni Izin",
+    "noLeaves": "Izin kaydi yok",
+    "noLeavesDesc": "Filtreleri degistirin ya da yeni bir izin talebi olusturun.",
+    "calendarToggle": "Takvim Gorunumu",
+    "print": "Yazdir",
+    "export": "Excel indir",
+    "cols": { "employee":"Personel","department":"Departman","type":"Tur","start":"Baslangic","end":"Bitis","days":"Gun","status":"Durum","approver":"Onaylayan","actions":"Islem" },
+    "status": { "pending":"Bekleyen","approved":"Onayli","rejected":"Reddedildi" },
+    "actions": { "approve":"Onayla","reject":"Reddet","cancel":"Iptal","hardDelete":"Kalici Sil" }
+  },
+  "attendance": {
+    "title": "Puantaj",
+    "desc": "{month} {year} - Aktif personeller",
+    "prev": "Onceki",
+    "next": "Sonraki",
+    "legend": "Tusa tiklayarak kodu degistir: G (Geldi), R (Raporlu), I (Izinli), T (Tatil), B (Boss).",
+    "summary": "Ay ozeti (gun sayilari)",
+    "summaryCols": { "name":"Personel","came":"Geldi","report":"Raporlu","leave":"Izinli","holiday":"Tatil","absent":"Boss" }
+  },
+  "common": {
+    "cancel": "Iptal",
+    "save": "Kaydet",
+    "update": "Guncelle",
+    "saving": "Kaydediliyor...",
+    "loading": "Yukleniyor...",
+    "confirm": "Emin misin?",
+    "records": "{count} kayit",
+    "page": "Sayfa {page}/{total}"
+  }
+}
