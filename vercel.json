@@ -1,5 +1,6 @@
 ﻿{
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rootDirectory": "apps/web",
   "framework": "nextjs",
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install --frozen-lockfile",
@@ -23,7 +24,7 @@
     }
   ],
   "functions": {
-    "apps/web/app/api/stripe/webhook/route.ts": {
+    "app/api/stripe/webhook/route.ts": {
       "maxDuration": 30
     }
   }
