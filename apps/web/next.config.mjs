@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
+  outputFileTracing: false,
 }
 
 export default nextConfig
