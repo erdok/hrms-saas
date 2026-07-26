@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-import { createClient, getSession, type Session } from '@hrms/db/server'
+import { createClient as _createClient, getSession, type Session } from '@hrms/db/server'
 import {
   type Action,
   type Resource,
@@ -7,6 +7,8 @@ import {
   can,
   ForbiddenError,
 } from '@hrms/types'
+
+export const createClient = _createClient
 
 /**
  * Returns the session for the current request or redirects to /login.

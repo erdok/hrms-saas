@@ -86,11 +86,11 @@ export default async function BillingSettingsPage() {
           <BillingActions
             currentPlan={session.company.plan}
             stripeCustomerId={session.company.stripe_customer_id}
-            prices={(prices.data ?? []).map((p: { id: string; plan: string; stripe_price_id: string; amount_try: number; interval: string }) => ({
+            prices={(prices.data ?? []).map((p: { id: string; plan: string; stripe_price_id: string; amount_try: number; interval: string | null }) => ({
               id: p.stripe_price_id,
               plan: p.plan,
               amountTry: p.amount_try,
-              interval: p.interval,
+              interval: p.interval ?? 'month',
             }))}
           />
         </CardContent>

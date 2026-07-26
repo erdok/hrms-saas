@@ -59,7 +59,7 @@ export async function listEmployees(
   if (search) {
     const needle = search.toLocaleLowerCase('tr')
     rows = rows.filter((r) =>
-      r.full_name.toLowerCase('tr').includes(needle),
+      r.full_name.toLocaleLowerCase('tr').includes(needle),
     )
   }
 

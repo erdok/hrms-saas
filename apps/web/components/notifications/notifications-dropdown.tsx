@@ -44,8 +44,9 @@ export function NotificationsDropdown() {
         .limit(20)
 
       if (!ignore && data) {
-        setNotifications(data as Notification[])
-        setUnreadCount(data.filter((n) => !n.read_at).length)
+        const items = data as Notification[]
+        setNotifications(items)
+        setUnreadCount(items.filter((n) => !n.read_at).length)
       }
     }
 

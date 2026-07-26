@@ -6,10 +6,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { createClient } from '@hrms/db/client'
-import {
-  createDepartment,
-  createEmployee,
-} from '@hrms/db/client'
 import { toast } from 'sonner'
 import {
   Button,
@@ -73,7 +69,15 @@ export default function OnboardingPage() {
 
     setCompanyName(data.name)
 
-    const dept = await createDepartment(supabase, data.name, profile.company_id)
+    const { data: dept, error: deptErr } = await supabase
+      .from('departments')
+      .insert({ name: data.name, company_id: profile.company_id })
+      .select('id, name')
+      .single()
+    if (deptErr || !dept) {
+      toast.error('Departman olusturulamadi')
+      return
+    }
     setDepartments([{ id: dept.id, name: dept.name }])
     setSelectedDeptId(dept.id)
     setCompletedSteps((s) => {
@@ -98,9 +102,9 @@ export default function OnboardingPage() {
       .single()
     if (!profile) return
 
-    await createEmployee(
-      supabase,
-      {
+    await supabase
+      .from('employees')
+      .insert({
         first_name: data.firstName,
         last_name: data.lastName,
         gender: data.gender,
@@ -108,9 +112,8 @@ export default function OnboardingPage() {
         start_date: data.startDate,
         salary: data.salary ?? null,
         created_by: user.id,
-      },
-      profile.company_id,
-    )
+        company_id: profile.company_id,
+      })
 
     setCompletedSteps((s) => {
       s.add(1)
@@ -282,4 +285,3 @@ function Step1Form({
   )
 }
 
-export { z }

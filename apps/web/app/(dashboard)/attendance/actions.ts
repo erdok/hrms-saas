@@ -5,9 +5,6 @@ import {
   createClient,
   setDayCode,
   upsertAttendance,
-  AttendanceCode,
-  monthKey,
-  daysInMonth,
 } from '@hrms/db/server'
 import { requirePermission } from '@/lib/auth'
 
@@ -77,16 +74,3 @@ export async function clearMonth(
   }
 }
 
-// Quick helper used by client(s) to navigate between months.
-export function nextMonthKey(current: string): string {
-  const [y, m] = current.split('-').map(Number)
-  const d = new Date(y, m, 1)   // next month
-  return monthKey(d)
-}
-export function prevMonthKey(current: string): string {
-  const [y, m] = current.split('-').map(Number)
-  const d = new Date(y, m - 2, 1) // prev month (m is 1-12, we subtract 2 -> 0-10)
-  return monthKey(d)
-}
-
-export { AttendanceCode, daysInMonth }

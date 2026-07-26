@@ -65,8 +65,9 @@ export function LeaveCalendar({ leaves }: { leaves: Leave[] }) {
       cells.push({ date: new Date(last.getTime() + 86_400_000), inMonth: false })
     }
 
-    const w: Array<typeof cells>[] = []
-    for (let i = 0; i < cells.length; i += 7) w.push(cells.slice(i, i + 7))
+    type Cell = { date: Date; inMonth: boolean }
+    const w: Cell[][] = []
+    for (let i = 0; i < cells.length; i += 7) w.push(cells.slice(i, i + 7) as Cell[])
     return w
   }, [cursor])
 

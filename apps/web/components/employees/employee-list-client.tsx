@@ -13,7 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from '@hrms/ui'
-import { EmployeeFormModal, type DepartmentOption } from './employee-form-modal'
+import { EmployeeFormModal, type DepartmentOption, type EmployeeFormValues } from './employee-form-modal'
 import { EmployeeRowActions } from './employee-row-actions'
 import { EmployeeSearchForm } from './employee-search-form'
 import { Pagination } from '@/components/layout/pagination'
@@ -164,7 +164,7 @@ export function EmployeeListClient({
         <EmployeeFormModal
           trigger={<span className="hidden" />}
           departments={departments}
-          employee={editEmployee}
+          employee={editEmployee as unknown as EmployeeFormValues & { id: string }}
         />
       )}
     </div>

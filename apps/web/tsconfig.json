@@ -6,6 +6,7 @@
     "moduleResolution": "Bundler",
     "incremental": true,
     "noEmit": true,
+    "noUncheckedIndexedAccess": false,
     "plugins": [
       {
         "name": "next"
@@ -19,6 +20,15 @@
       ],
       "@hrms/db": [
         "../../packages/db/src/index.ts"
+      ],
+      "@hrms/db/server": [
+        "../../packages/db/src/server-index.ts"
+      ],
+      "@hrms/db/client": [
+        "../../packages/db/src/client.ts"
+      ],
+      "@hrms/db/admin": [
+        "../../packages/db/src/admin.ts"
       ],
       "@hrms/db/*": [
         "../../packages/db/src/*"
@@ -39,6 +49,16 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "e2e/**",
+    "sentry.client.config.ts",
+    "sentry.server.config.ts",
+    "sentry.edge.config.ts",
+    "lib/observability/sentry.ts",
+    "components/locale-toggle.tsx",
+    "app/api/stripe/**"
   ]
 }

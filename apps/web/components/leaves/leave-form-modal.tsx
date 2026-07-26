@@ -25,7 +25,7 @@ import {
 
 export interface EmployeeOption {
   id: string
-  full_name: string
+  full_name: string | null
   department_name?: string | null
 }
 

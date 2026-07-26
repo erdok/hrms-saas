@@ -16,7 +16,7 @@ import type { AttendanceMonthRow } from '@hrms/db'
 
 interface GridRow {
   employee_id: string
-  employee_name: string
+  employee_name: string | null
   department_name: string | null
   day_status: number[]
 }

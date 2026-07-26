@@ -57,7 +57,8 @@ export async function ensureStripeCustomer(
   const stripe = getStripe()
   if (!stripe) return null
   const customers = await stripe.customers.list({ email, limit: 1 })
-  if (customers.data.length > 0) return customers.data[0].id
+  const existing = customers.data[0]
+  if (existing) return existing.id
   const customer = await stripe.customers.create({
     email,
     name: companyName,

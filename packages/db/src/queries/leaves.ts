@@ -4,8 +4,8 @@ import type { Database } from '../types-generated'
 export type LeaveRow = Database['public']['Tables']['leaves']['Row']
 export type LeaveInsert = Database['public']['Tables']['leaves']['Insert']
 export type LeaveUpdate = Database['public']['Tables']['leaves']['Update']
-export type LeaveType = Database['public']['Enums']['leave_type']
-export type LeaveStatus = Database['public']['Enums']['leave_status']
+export type LeaveType = 'Yillik' | 'Mazeret' | 'Hastalik' | 'Ucretsiz'
+export type LeaveStatus = 'pending' | 'approved' | 'rejected'
 
 export interface LeaveWithEmployee {
   id: string
@@ -57,11 +57,11 @@ export async function listLeaves(
   filters: ListLeavesFilters = {},
 ): Promise<LeaveWithEmployee[]> {
   const { data, error } = await supabase.rpc('list_leaves_with_employee', {
-    p_status: filters.status ?? null,
-    p_department_id: filters.departmentId ?? null,
-    p_type: filters.type ?? null,
-    p_from: filters.from ?? null,
-    p_to: filters.to ?? null,
+    p_status: filters.status ?? undefined,
+    p_department_id: filters.departmentId ?? undefined,
+    p_type: filters.type ?? undefined,
+    p_from: filters.from ?? undefined,
+    p_to: filters.to ?? undefined,
   })
   if (error) throw error
   return (data ?? []) as LeaveWithEmployee[]
@@ -97,7 +97,7 @@ export async function checkLeaveOverlap(
     p_employee_id: employeeId,
     p_start: startDate,
     p_end: endDate,
-    p_exclude_leave_id: excludeLeaveId ?? null,
+    p_exclude_leave_id: excludeLeaveId ?? undefined,
   })
   if (error) throw error
   return (data ?? []) as LeaveOverlap[]
