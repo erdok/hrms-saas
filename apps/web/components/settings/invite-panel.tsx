@@ -3,7 +3,7 @@
 import { useState, useTransition } from 'react'
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Select, Badge } from '@hrms/ui'
 import { Plus, Trash2, Clipboard } from 'lucide-react'
-import { createInviteAction, deleteInviteAction } from '@/app/(dashboard)/settings/invites/actions'
+import { createInviteAction, deleteInviteAction } from '@/app/dashboard/settings/invites/actions'
 import { toast } from 'sonner'
 
 interface InviteRow {

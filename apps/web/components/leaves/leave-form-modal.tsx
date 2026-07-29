@@ -21,7 +21,7 @@ import {
 import {
   createLeaveAction,
   type LeaveActionResult,
-} from '@/app/(dashboard)/leaves/actions'
+} from '@/app/dashboard/leaves/actions'
 
 export interface EmployeeOption {
   id: string

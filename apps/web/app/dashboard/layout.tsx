@@ -15,7 +15,7 @@ export default async function DashboardLayout({
 }) {
   const supabase = createClient()
   const session = await getSession(supabase)
-  if (!session) redirect('/login')
+  if (!session) redirect('/auth/login')
 
   return (
     <ThemeProvider>

@@ -28,7 +28,7 @@ import {
   createDepartmentAction,
   updateDepartmentAction,
   deleteDepartmentAction,
-} from '@/app/(dashboard)/departments/actions'
+} from '@/app/dashboard/departments/actions'
 
 export interface DepartmentListProps {
   departments: DepartmentRow[]

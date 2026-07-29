@@ -37,7 +37,7 @@ function LoginForm() {
       })
       if (err) throw err
 
-      const next = params.get('next') ?? '/employees'
+      const next = params.get('next') ?? '/dashboard/employees'
       router.push(next)
       router.refresh()
     } catch (err) {
@@ -85,7 +85,7 @@ function LoginForm() {
 
           <p className="text-center text-sm text-muted-foreground">
             Hesabiniz yok mu?{' '}
-            <Link href="/signup" className="text-primary hover:underline">
+            <Link href="/auth/signup" className="text-primary hover:underline">
               Sirket kaydi olusturun
             </Link>
           </p>

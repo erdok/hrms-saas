@@ -1,4 +1,4 @@
-import { createClient } from '@hrms/db/server'
+﻿import { createClient } from '@hrms/db/server'
 import { requirePermission } from '@/lib/auth'
 import {
   Card,
@@ -67,7 +67,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
         <CardContent>
           <div className="flex flex-wrap gap-2">
             <a
-              href="/settings/audit"
+              href="/dashboard/settings/audit"
               className={`rounded-md px-3 py-1.5 text-sm ${
                 !entity ? 'bg-primary text-primary-foreground' : 'border hover:bg-accent'
               }`}
@@ -77,7 +77,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
             {Object.entries(ENTITY_LABELS).map(([key, label]) => (
               <a
                 key={key}
-                href={`/settings/audit?entity=${key}`}
+                href={`/dashboard/settings/audit?entity=${key}`}
                 className={`rounded-md px-3 py-1.5 text-sm ${
                   entity === key ? 'bg-primary text-primary-foreground' : 'border hover:bg-accent'
                 }`}
@@ -141,7 +141,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
         <div className="flex justify-center gap-2">
           {page > 1 && (
             <a
-              href={`/settings/audit?${entity ? `entity=${entity}&` : ''}page=${page - 1}`}
+              href={`/dashboard/settings/audit?${entity ? `entity=${entity}&` : ''}page=${page - 1}`}
               className="rounded-md border px-3 py-1.5 text-sm hover:bg-accent"
             >
               &laquo; Onceki
@@ -149,7 +149,7 @@ export default async function AuditPage({ searchParams }: PageProps) {
           )}
           {page < totalPages && (
             <a
-              href={`/settings/audit?${entity ? `entity=${entity}&` : ''}page=${page + 1}`}
+              href={`/dashboard/settings/audit?${entity ? `entity=${entity}&` : ''}page=${page + 1}`}
               className="rounded-md border px-3 py-1.5 text-sm hover:bg-accent"
             >
               Sonraki &raquo;

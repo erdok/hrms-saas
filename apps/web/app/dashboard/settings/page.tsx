@@ -11,19 +11,19 @@ import { requireSession } from '@/lib/auth'
 
 const SECTIONS = [
   {
-    href: '/settings/billing',
+    href: '/dashboard/settings/billing',
     icon: CreditCard,
     title: 'Abonelik & Faturalandirma',
     desc: 'Plan, limit, Stripe portal, fatura listesi.',
   },
   {
-    href: '/settings/audit',
+    href: '/dashboard/settings/audit',
     icon: ScrollText,
     title: 'Denetim Kayitlari',
     desc: 'Tum veri degisiklikleri KVKK Madde 12 geregi.',
   },
   {
-    href: '/settings/kvkk',
+    href: '/dashboard/settings/kvkk',
     icon: Shield,
     title: 'KVKK & Veri Koruma',
     desc: 'Aydinlatma metni, veri ihraci, silme talebi.',

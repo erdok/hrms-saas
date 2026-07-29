@@ -16,7 +16,7 @@ const DAYS_AHEAD = 14
 async function DashboardHome() {
   const supabase = createClient()
   const session = await getSession(supabase)
-  if (!session) redirect('/login')
+  if (!session) redirect('/auth/login')
 
   const companyId = session.profile.company_id
 
@@ -209,10 +209,10 @@ function LandingPage() {
           bir SaaS altyapisi.
         </p>
         <div className="mt-8 flex justify-center gap-3">
-          <Link href="/signup">
+          <Link href="/auth/signup">
             <Button size="lg">Ucretsiz Basla</Button>
           </Link>
-          <Link href="/login">
+          <Link href="/auth/login">
             <Button size="lg" variant="outline">
               Oturum Ac
             </Button>

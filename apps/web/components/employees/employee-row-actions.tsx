@@ -14,7 +14,7 @@ import {
   archiveEmployeeAction,
   restoreEmployeeAction,
   deleteEmployeeAction,
-} from '@/app/(dashboard)/employees/actions'
+} from '@/app/dashboard/employees/actions'
 
 export function EmployeeRowActions({
   employeeId,

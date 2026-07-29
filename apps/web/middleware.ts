@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_PATHS = ['/', '/onboarding', '/login', '/signup', '/callback', '/api/auth/callback']
+const PUBLIC_PATHS = ['/', '/onboarding', '/auth/login', '/auth/signup', '/callback', '/api/auth/callback']
 
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'))
@@ -49,7 +49,7 @@ export async function middleware(request: NextRequest) {
 
   if (!user) {
     const redirectUrl = request.nextUrl.clone()
-    redirectUrl.pathname = '/login'
+    redirectUrl.pathname = '/auth/login'
     redirectUrl.searchParams.set('next', pathname)
     return NextResponse.redirect(redirectUrl)
   }

@@ -19,7 +19,7 @@ import { FileText, Plus, Pencil, Trash2 } from 'lucide-react'
 import {
   saveTemplateAction,
   deleteTemplateAction,
-} from '@/app/(dashboard)/templates/actions'
+} from '@/app/dashboard/templates/actions'
 
 export interface TemplateItem {
   id: string

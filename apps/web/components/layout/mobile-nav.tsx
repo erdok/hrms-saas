@@ -12,10 +12,10 @@ import {
 import { cn } from '@hrms/ui'
 
 const MOBILE_NAV = [
-  { href: '/',              icon: LayoutDashboard, label: 'Panel' },
-  { href: '/employees',     icon: Users,            label: 'Personeller' },
-  { href: '/leaves',        icon: CalendarMinus,    label: 'Izinler' },
-  { href: '/attendance',    icon: Clock,             label: 'Puantaj' },
+  { href: '/',                      icon: LayoutDashboard, label: 'Panel' },
+  { href: '/dashboard/employees',   icon: Users,            label: 'Personeller' },
+  { href: '/dashboard/leaves',      icon: CalendarMinus,    label: 'Izinler' },
+  { href: '/dashboard/attendance',  icon: Clock,             label: 'Puantaj' },
 ]
 
 export function MobileNav() {
@@ -52,10 +52,10 @@ export function MobileNav() {
       })}
 
       <Link
-        href={`/${locale}/departments`}
+        href={`/${locale}/dashboard/departments`}
         className={cn(
           'flex flex-col items-center gap-1 rounded-md px-3 py-2 text-xs font-medium transition-colors',
-          pathname.startsWith(`/${locale}/departments`)
+          pathname.startsWith(`/${locale}/dashboard/departments`)
             ? 'text-primary'
             : 'text-muted-foreground hover:text-foreground',
         )}

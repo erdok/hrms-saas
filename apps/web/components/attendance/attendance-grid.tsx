@@ -79,7 +79,7 @@ export function AttendanceGrid({ rows, monthDate, daysInMonth, holidays }: Props
     )
 
     startTransition(async () => {
-      const { setDay } = await import('@/app/(dashboard)/attendance/actions')
+      const { setDay } = await import('@/app/dashboard/attendance/actions')
       await setDay(employeeId, monthDate, day, next)
     })
   }
@@ -87,7 +87,7 @@ export function AttendanceGrid({ rows, monthDate, daysInMonth, holidays }: Props
   function clearRow(employeeId: string) {
     if (!confirm('Bu personelin tum ay puantaji sifirlansin mi?')) return
     startTransition(async () => {
-      const { clearMonth } = await import('@/app/(dashboard)/attendance/actions')
+      const { clearMonth } = await import('@/app/dashboard/attendance/actions')
       await clearMonth(employeeId, monthDate)
       setLocalRows((prev) =>
         prev.map((r) =>

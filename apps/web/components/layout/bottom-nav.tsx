@@ -12,11 +12,11 @@ import {
 import { cn } from '@hrms/ui'
 
 const NAV = [
-  { href: '/',            label: 'Panel',      icon: LayoutDashboard },
-  { href: '/employees',   label: 'Personel',   icon: Users },
-  { href: '/leaves',      label: 'Izinler',    icon: CalendarMinus },
-  { href: '/attendance',  label: 'Puantaj',    icon: Clock },
-  { href: '/settings',    label: 'Ayarlar',    icon: Settings },
+  { href: '/',                     label: 'Panel',      icon: LayoutDashboard },
+  { href: '/dashboard/employees',  label: 'Personel',   icon: Users },
+  { href: '/dashboard/leaves',     label: 'Izinler',    icon: CalendarMinus },
+  { href: '/dashboard/attendance', label: 'Puantaj',    icon: Clock },
+  { href: '/dashboard/settings',   label: 'Ayarlar',    icon: Settings },
 ]
 
 export function BottomNav() {

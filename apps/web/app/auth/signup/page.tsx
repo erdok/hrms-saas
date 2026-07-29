@@ -136,7 +136,7 @@ export default function SignupPage() {
 
           <p className="text-center text-sm text-muted-foreground">
             Zaten hesabiniz var?{' '}
-            <Link href="/login" className="text-primary hover:underline">
+            <Link href="/auth/login" className="text-primary hover:underline">
               Oturum acin
             </Link>
           </p>

@@ -18,7 +18,7 @@ import {
   Select,
   Textarea,
 } from '@hrms/ui'
-import { saveEmployeeAction } from '@/app/(dashboard)/employees/actions'
+import { saveEmployeeAction } from '@/app/dashboard/employees/actions'
 
 export interface DepartmentOption {
   id: string

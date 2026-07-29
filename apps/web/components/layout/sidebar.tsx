@@ -19,14 +19,14 @@ import { useState } from 'react'
 import { cn, Button } from '@hrms/ui'
 
 const NAV = [
-  { href: '/',              label: 'Panel',       icon: LayoutDashboard },
-  { href: '/employees',     label: 'Personeller',  icon: Users },
-  { href: '/departments',   label: 'Departmanlar', icon: Network },
-  { href: '/leaves',        label: 'Izinler',      icon: CalendarMinus },
-  { href: '/attendance',    label: 'Puantaj',       icon: Clock },
-  { href: '/templates',     label: 'Sablonlar',     icon: FileText },
-  { href: '/documents',     label: 'Belgeler',      icon: FilePlus },
-  { href: '/settings',      label: 'Ayarlar',       icon: Settings },
+  { href: '/',                      label: 'Panel',       icon: LayoutDashboard },
+  { href: '/dashboard/employees',    label: 'Personeller',  icon: Users },
+  { href: '/dashboard/departments',  label: 'Departmanlar', icon: Network },
+  { href: '/dashboard/leaves',       label: 'Izinler',      icon: CalendarMinus },
+  { href: '/dashboard/attendance',   label: 'Puantaj',       icon: Clock },
+  { href: '/dashboard/templates',    label: 'Sablonlar',     icon: FileText },
+  { href: '/dashboard/documents',    label: 'Belgeler',      icon: FilePlus },
+  { href: '/dashboard/settings',     label: 'Ayarlar',       icon: Settings },
 ]
 
 export function Sidebar() {
@@ -66,7 +66,7 @@ export function Sidebar() {
       <aside className="hidden h-screen w-64 shrink-0 border-r bg-card md:block">
         <div className="flex h-14 items-center gap-2 border-b px-4">
           <Home className="h-5 w-5 text-primary" />
-          <span className="font-semibold">HRMS</span>
+          <Link href={localHref('/')} className="font-semibold">HRMS</Link>
         </div>
         <nav className="flex flex-col gap-1 p-3">
           {NAV.map((item) => {
@@ -99,7 +99,7 @@ export function Sidebar() {
       >
         <div className="flex h-14 items-center gap-2 border-b px-4">
           <Home className="h-5 w-5 text-primary" />
-          <span className="font-semibold">HRMS</span>
+          <Link href={localHref('/')} className="font-semibold">HRMS</Link>
           <Button
             variant="ghost"
             size="icon"

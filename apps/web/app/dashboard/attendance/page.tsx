@@ -1,4 +1,4 @@
-import {
+﻿import {
   createClient,
   getAttendanceMonth,
   AttendanceCode,
@@ -91,13 +91,13 @@ export default async function AttendancePage({ searchParams }: PageProps) {
         </div>
         <div className="flex gap-1">
           <a
-            href={`/attendance?month=${prevMonth}`}
+            href={`/dashboard/attendance?month=${prevMonth}`}
             className="inline-flex items-center rounded-md border px-3 py-1.5 text-sm hover:bg-accent"
           >
             &laquo; Onceki
           </a>
           <a
-            href={`/attendance?month=${nextMonth}`}
+            href={`/dashboard/attendance?month=${nextMonth}`}
             className="inline-flex items-center rounded-md border px-3 py-1.5 text-sm hover:bg-accent"
           >
             Sonraki &raquo;

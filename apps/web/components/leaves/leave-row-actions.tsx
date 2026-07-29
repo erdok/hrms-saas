@@ -22,7 +22,7 @@ import {
   rejectLeaveAction,
   cancelLeaveAction,
   hardDeleteLeaveAction,
-} from '@/app/(dashboard)/leaves/actions'
+} from '@/app/dashboard/leaves/actions'
 
 export function LeaveStatusBadge({ status }: { status: 'pending' | 'approved' | 'rejected' }) {
   const map = {
