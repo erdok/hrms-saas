@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
-export default function HomePage() {
-  redirect('/auth/login')
+export default async function HomePage() {
+  redirect('/dashboard/employees')
 }

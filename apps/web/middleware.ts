@@ -1,17 +1,13 @@
+import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_PATHS = ['/', '/onboarding', '/auth/login', '/auth/signup', '/callback', '/api/auth/callback']
+const PUBLIC_PATHS = ['/onboarding', '/auth/login', '/auth/signup', '/api/auth/callback']
 
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'))
 }
 
-function hasSessionCookie(request: NextRequest): boolean {
-  const cookies = request.cookies.getAll()
-  return cookies.some((c) => c.name.startsWith('sb-') && c.name.endsWith('-auth-token') && c.value.length > 0)
-}
-
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (
@@ -23,18 +19,45 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  let res = NextResponse.next({ request })
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet: { name: string; value: string; options: Record<string, unknown> }[]) {
+          cookiesToSet.forEach(({ name, value }) => {
+            request.cookies.set(name, value)
+            res = NextResponse.next({ request })
+            res.cookies.set(name, value)
+          })
+        },
+      },
+    },
+  )
+
+  await supabase.auth.getSession()
+
   if (isPublic(pathname)) {
-    return NextResponse.next()
+    return res
   }
 
-  if (!hasSessionCookie(request)) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
     const redirectUrl = request.nextUrl.clone()
     redirectUrl.pathname = '/auth/login'
     redirectUrl.searchParams.set('next', pathname)
     return NextResponse.redirect(redirectUrl)
   }
 
-  return NextResponse.next()
+  return res
 }
 
 export const config = {
