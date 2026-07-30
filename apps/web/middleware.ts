@@ -1,13 +1,15 @@
-import { createServerClient } from '@supabase/ssr'
+﻿import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const DEBUG_COOKIES = true
 const PUBLIC_PATHS = ['/onboarding', '/auth/login', '/auth/signup', '/api/auth/callback']
 
+function logCookies(req: NextRequest) { if (DEBUG_COOKIES) console.log('[MW] cookies:', req.cookies.getAll().map(c => c.name)) }
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'))
 }
 
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) { logCookies(request) {
   const { pathname } = request.nextUrl
 
   if (
@@ -30,10 +32,9 @@ export async function middleware(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet: { name: string; value: string; options: Record<string, unknown> }[]) {
-          cookiesToSet.forEach(({ name, value }) => {
+          cookiesToSet.forEach(({ name, value, options }) => {
             request.cookies.set(name, value)
-            res = NextResponse.next({ request })
-            res.cookies.set(name, value)
+            res.cookies.set({ name, value, ...(options as Record<string, unknown>) })
           })
         },
       },
