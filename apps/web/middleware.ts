@@ -1,15 +1,13 @@
 ﻿import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const DEBUG_COOKIES = true
 const PUBLIC_PATHS = ['/onboarding', '/auth/login', '/auth/signup', '/api/auth/callback']
 
-function logCookies(req: NextRequest) { if (DEBUG_COOKIES) console.log('[MW] cookies:', req.cookies.getAll().map(c => c.name)) }
 function isPublic(pathname: string): boolean {
   return PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(p + '/'))
 }
 
-export async function middleware(request: NextRequest) { logCookies(request) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (
