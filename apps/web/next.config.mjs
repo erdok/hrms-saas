@@ -5,14 +5,6 @@ const nextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
-  experimental: {
-    outputFileTracingExcludes: {
-      '**': [
-        '.next/server/app/**/page_client-reference-manifest.js',
-        '.next/server/app/polyfills.js',
-      ],
-    },
-  },
 }
 
 export default nextConfig
