@@ -49,7 +49,15 @@ export default function SignupPage() {
       if (authErr) throw authErr
       if (!authData.user) throw new Error('Kullanici olusturulamadi')
 
-      // 2) Sirket + profile'i tek transaction'da olusturan RPC
+      // 2) Oturum ac (signup sonrasi session gelmeyebilir - email confirmation'a bagli)
+      //    Bu adim basarisiz olursa kullanici elle login olabilir.
+      const { error: signInErr } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      })
+      if (signInErr) throw signInErr
+
+      // 3) Sirket + profile'i tek transaction'da olusturan RPC
       const { error: rpcErr } = await supabase.rpc('sign_up_company', {
         p_company_name: data.companyName,
         p_company_slug: data.companySlug,
