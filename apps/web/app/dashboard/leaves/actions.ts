@@ -48,7 +48,7 @@ export async function createLeaveAction(input: unknown): Promise<LeaveActionResu
       },
       session.profile.company_id,
     )
-    revalidatePath('/leaves')
+    revalidatePath('/dashboard/leaves')
     return { kind: 'ok' }
   } catch (err) {
     if (err instanceof LeaveOverlapError) {
@@ -66,7 +66,7 @@ export async function approveLeaveAction(id: string): Promise<LeaveActionResult>
   const supabase = createClient()
   try {
     await approveLeave(supabase, id, session.user.id)
-    revalidatePath('/leaves')
+    revalidatePath('/dashboard/leaves')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Onay basarisiz' }
@@ -78,7 +78,7 @@ export async function rejectLeaveAction(id: string, note?: string): Promise<Leav
   const supabase = createClient()
   try {
     await rejectLeave(supabase, id, session.user.id, note)
-    revalidatePath('/leaves')
+    revalidatePath('/dashboard/leaves')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Red basarisiz' }
@@ -90,7 +90,7 @@ export async function cancelLeaveAction(id: string): Promise<LeaveActionResult> 
   const supabase = createClient()
   try {
     await cancelLeave(supabase, id)
-    revalidatePath('/leaves')
+    revalidatePath('/dashboard/leaves')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Iptal basarisiz' }
@@ -102,7 +102,7 @@ export async function hardDeleteLeaveAction(id: string): Promise<LeaveActionResu
   const supabase = createClient()
   try {
     await hardDeleteLeave(supabase, id)
-    revalidatePath('/leaves')
+    revalidatePath('/dashboard/leaves')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Silme basarisiz' }

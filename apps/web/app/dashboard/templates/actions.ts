@@ -27,12 +27,12 @@ export async function saveTemplateAction(formData: FormData, id?: string) {
   } else {
     await createTemplate(supabase, data.name, data.content, session.profile.company_id)
   }
-  revalidatePath('/templates')
+  revalidatePath('/dashboard/templates')
 }
 
 export async function deleteTemplateAction(id: string) {
   await requirePermission('delete', 'templates')
   const supabase = createClient()
   await deleteTemplate(supabase, id)
-  revalidatePath('/templates')
+  revalidatePath('/dashboard/templates')
 }

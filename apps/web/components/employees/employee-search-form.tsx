@@ -45,7 +45,7 @@ export function EmployeeSearchForm({
     else q.delete('dept')
     q.set('status', status)
     startTransition(() => {
-      router.replace(`/employees?${q.toString()}`)
+      router.replace(`/dashboard/employees?${q.toString()}`)
     })
   }
 

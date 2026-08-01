@@ -52,7 +52,7 @@ export async function bulkUpsert(
   const supabase = createClient()
   try {
     await upsertAttendance(supabase, employeeId, monthDate, dayStatus)
-    revalidatePath('/attendance')
+    revalidatePath('/dashboard/attendance')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Hata' }
@@ -67,7 +67,7 @@ export async function clearMonth(
   const supabase = createClient()
   try {
     await upsertAttendance(supabase, employeeId, monthDate, new Array(DAY_STATUS_LEN).fill(0))
-    revalidatePath('/attendance')
+    revalidatePath('/dashboard/attendance')
     return { kind: 'ok' }
   } catch (err) {
     return { kind: 'error', message: err instanceof Error ? err.message : 'Hata' }

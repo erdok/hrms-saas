@@ -65,30 +65,30 @@ export async function saveEmployeeAction(input: unknown, id?: string | null) {
     )
   }
 
-  revalidatePath('/employees')
+  revalidatePath('/dashboard/employees')
 }
 
 export async function archiveEmployeeAction(id: string) {
   await requirePermission('update', 'employees')
   const supabase = createClient()
   await archiveEmployee(supabase, id)
-  revalidatePath('/employees')
-  revalidatePath('/leaves')
+  revalidatePath('/dashboard/employees')
+  revalidatePath('/dashboard/leaves')
 }
 
 export async function restoreEmployeeAction(id: string) {
   await requirePermission('update', 'employees')
   const supabase = createClient()
   await restoreEmployee(supabase, id)
-  revalidatePath('/employees')
-  revalidatePath('/leaves')
+  revalidatePath('/dashboard/employees')
+  revalidatePath('/dashboard/leaves')
 }
 
 export async function deleteEmployeeAction(id: string) {
   await requirePermission('delete', 'employees')
   const supabase = createClient()
   await deleteEmployee(supabase, id)
-  revalidatePath('/employees')
+  revalidatePath('/dashboard/employees')
 }
 
 // Server actions must return undefined or simple serializable data for next/form.

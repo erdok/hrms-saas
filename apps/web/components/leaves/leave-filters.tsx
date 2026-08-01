@@ -30,7 +30,7 @@ export function LeaveFilters({
     if (value) q.set(name, value)
     else q.delete(name)
     if (!q.has('status')) q.set('status', '')
-    startTransition(() => router.replace(`/leaves?${q.toString()}`))
+    startTransition(() => router.replace(`/dashboard/leaves?${q.toString()}`))
   }
 
   return (

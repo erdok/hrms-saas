@@ -157,7 +157,7 @@ export function EmployeeListClient({
       )}
 
       {rows.length > 0 && allPages > 1 && (
-        <Pagination page={page} totalPages={allPages} basePath="/employees" />
+        <Pagination page={page} totalPages={allPages} basePath="/dashboard/employees" />
       )}
 
       {editModalOpen && editEmployee && (

@@ -25,8 +25,8 @@ export async function createDepartmentAction(formData: FormData) {
   })
 
   await createDepartment(supabase, data.name, session.profile.company_id, data.parentId)
-  revalidatePath('/employees')
-  revalidatePath('/departments')
+  revalidatePath('/dashboard/employees')
+  revalidatePath('/dashboard/departments')
 }
 
 export async function updateDepartmentAction(id: string, formData: FormData) {
@@ -42,14 +42,14 @@ export async function updateDepartmentAction(id: string, formData: FormData) {
     name: data.name,
     parent_id: data.parentId ?? null,
   })
-  revalidatePath('/departments')
-  revalidatePath('/employees')
+  revalidatePath('/dashboard/departments')
+  revalidatePath('/dashboard/employees')
 }
 
 export async function deleteDepartmentAction(id: string) {
   await requirePermission('delete', 'departments')
   const supabase = createClient()
   await deleteDepartment(supabase, id)
-  revalidatePath('/departments')
-  revalidatePath('/employees')
+  revalidatePath('/dashboard/departments')
+  revalidatePath('/dashboard/employees')
 }

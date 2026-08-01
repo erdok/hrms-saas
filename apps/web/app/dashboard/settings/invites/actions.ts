@@ -1,4 +1,4 @@
-'use server'
+﻿'use server'
 
 import { revalidatePath } from 'next/cache'
 import { createClient, requirePermission } from '@/lib/auth'
@@ -19,7 +19,7 @@ export async function createInviteAction(email: string, role: 'employee' | 'hr_m
   })
 
   if (error) throw new Error(error.message)
-  revalidatePath('/settings/invites')
+  revalidatePath('/dashboard/settings/invites')
   return { kind: 'ok' as const, token }
 }
 
@@ -27,5 +27,5 @@ export async function deleteInviteAction(id: string) {
   await requirePermission('manage', 'profiles')
   const supabase = createClient()
   await supabase.from('invites').delete().eq('id', id)
-  revalidatePath('/settings/invites')
+  revalidatePath('/dashboard/settings/invites')
 }
