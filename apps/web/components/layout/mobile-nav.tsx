@@ -12,7 +12,6 @@ import {
 import { cn } from '@hrms/ui'
 
 const MOBILE_NAV = [
-  { href: '/',                      icon: LayoutDashboard, label: 'Panel' },
   { href: '/dashboard/employees',   icon: Users,            label: 'Personeller' },
   { href: '/dashboard/leaves',      icon: CalendarMinus,    label: 'Izinler' },
   { href: '/dashboard/attendance',  icon: Clock,             label: 'Puantaj' },
@@ -20,24 +19,16 @@ const MOBILE_NAV = [
 
 export function MobileNav() {
   const pathname = usePathname()
-  const locale = 'tr' as const
-  function localHref(href: string) {
-    return `/${locale}${href}`.replace(/\/$/, '')
-  }
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-30 flex h-16 items-center justify-around border-t bg-background/95 backdrop-blur md:hidden">
       {MOBILE_NAV.map((item) => {
         const Icon = item.icon
-        const href = item.href === '/' ? `/${locale}` : `${localHref(item.href)}`
-        const active =
-          item.href === '/'
-            ? pathname === href
-            : pathname.startsWith(href)
+        const active = pathname.startsWith(item.href)
         return (
           <Link
             key={item.href}
-            href={href}
+            href={item.href}
             className={cn(
               'flex flex-col items-center gap-1 rounded-md px-3 py-2 text-xs font-medium transition-colors',
               active
@@ -52,10 +43,10 @@ export function MobileNav() {
       })}
 
       <Link
-        href={`/${locale}/dashboard/departments`}
+        href="/dashboard/departments"
         className={cn(
           'flex flex-col items-center gap-1 rounded-md px-3 py-2 text-xs font-medium transition-colors',
-          pathname.startsWith(`/${locale}/dashboard/departments`)
+          pathname.startsWith('/dashboard/departments')
             ? 'text-primary'
             : 'text-muted-foreground hover:text-foreground',
         )}
