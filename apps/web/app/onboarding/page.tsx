@@ -125,7 +125,7 @@ export default function OnboardingPage() {
 
   function finish() {
     startTransition(() => {
-      router.push(`/${locale}`)
+      router.push('/dashboard/employees')
       router.refresh()
     })
   }

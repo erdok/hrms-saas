@@ -31,16 +31,10 @@ const NAV = [
 
 export function Sidebar() {
   const pathname = usePathname()
-  const locale = 'tr' as const
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  function localHref(href: string) {
-    return `/${locale}${href}`.replace(/\/$/, '')
-  }
-
   function isActive(href: string) {
-    const normalized = href === '/' ? localHref('/') : localHref(href)
-    return href === '/' ? pathname === normalized : pathname.startsWith(normalized)
+    return href === '/' ? pathname === '/' : pathname.startsWith(href)
   }
 
   return (
@@ -66,7 +60,7 @@ export function Sidebar() {
       <aside className="hidden h-screen w-64 shrink-0 border-r bg-card md:block">
         <div className="flex h-14 items-center gap-2 border-b px-4">
           <Home className="h-5 w-5 text-primary" />
-          <Link href={localHref('/')} className="font-semibold">HRMS</Link>
+          <Link href="/" className="font-semibold">HRMS</Link>
         </div>
         <nav className="flex flex-col gap-1 p-3">
           {NAV.map((item) => {
@@ -74,7 +68,7 @@ export function Sidebar() {
             return (
               <Link
                 key={item.href}
-                href={localHref(item.href)}
+                href={item.href}
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   isActive(item.href)
@@ -99,7 +93,7 @@ export function Sidebar() {
       >
         <div className="flex h-14 items-center gap-2 border-b px-4">
           <Home className="h-5 w-5 text-primary" />
-          <Link href={localHref('/')} className="font-semibold">HRMS</Link>
+          <Link href="/" className="font-semibold">HRMS</Link>
           <Button
             variant="ghost"
             size="icon"
@@ -115,7 +109,7 @@ export function Sidebar() {
             return (
               <Link
                 key={item.href}
-                href={localHref(item.href)}
+                href={item.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
